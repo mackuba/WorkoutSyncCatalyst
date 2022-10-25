@@ -77,6 +77,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             formatter.unitsStyle = .abbreviated
 
                             print("At \(workout.startDate): \(type), time = \(formatter.string(from: workout.duration)!), distance = \(workout.totalDistance!)")
+
+                            let sr = workout.sourceRevision
+                            print("\(sr.source.name) (\(sr.source.bundleIdentifier)), \(sr.productType) \(sr.operatingSystemVersion) \(sr.version)")
+                            if let dev = workout.device {
+                                print("\(dev.name) \(dev.manufacturer) \(dev.softwareVersion) \(dev.hardwareVersion)")
+                            } else {
+                                print("-")
+                            }
+                            print("\(workout.metadata)")
                         }
                     } else {
                         print("Error loading workouts: \(error)")
