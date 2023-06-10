@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             formatter.allowedUnits = [.hour, .minute]
                             formatter.unitsStyle = .abbreviated
 
-                            print("At \(workout.startDate): \(type), time = \(formatter.string(from: workout.duration)!), distance = \(workout.totalDistance!)")
+                            print("At \(workout.startDate): \(type), time = \(formatter.string(from: workout.duration)!), distance = \(workout.totalDistance?.description ?? "unknown distance")")
 
                             let sr = workout.sourceRevision
                             print("\(sr.source.name) (\(sr.source.bundleIdentifier)), \(sr.productType) \(sr.operatingSystemVersion) \(sr.version)")
